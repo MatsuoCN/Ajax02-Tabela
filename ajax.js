@@ -8,17 +8,12 @@ btnAdd.addEventListener('click', () => {
             if (!response.ok) {
                 throw new Error('Erro na rede: ' + response.status);
             }
-            return response.json(); // Converte resposta para JSON
+            return response.json();
         })
         .then(data => {
-            // 4. Limpar tabela existente para não duplicar dados se clicar 2x
             tbody.innerHTML = '';
-
-            // 5. Iterar sobre os dados e criar as linhas
             data.forEach(post => {
                 const tr = document.createElement('tr');
-
-                // Mapeando corretamente: userId, id, title e body
                 tr.innerHTML = `
                     <td>${post.userId}</td>
                     <td>${post.id}</td>
