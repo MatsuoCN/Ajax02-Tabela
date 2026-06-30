@@ -1,8 +1,7 @@
-const btnAdd = document.getElementById('btnAdd');
-const tbody = document.getElementById('tbody');
-
-btnAdd.addEventListener('click', () => {
+function carregarPosts(btn) {
+    const tbody = document.getElementById('tbody');
     const url = 'https://jsonplaceholder.typicode.com/posts';
+
     fetch(url)
         .then(response => {
             if (!response.ok) {
@@ -27,4 +26,5 @@ btnAdd.addEventListener('click', () => {
             console.error('Erro ao carregar dados:', error);
             alert('Falha ao carregar os dados. Verifique o console.');
         });
-});
+
+}
